@@ -75,8 +75,9 @@ El catálogo se alimenta de forma automática a partir del archivo [`js/trabajos
 > - `bolsos` (Bolsos personalizados)
 > - `cuadros` (Cuadros)
 > - `ilustracion` (Ilustración por encargo)
+> - `otros` (Otros encargos)
 >
-> *Nota: Si añades un trabajo de una categoría que antes no tenía obras (por ejemplo `bolsos` o `cuadros`), tanto su tarjeta en la sección de categorías como su botón de filtro en la galería aparecerán automáticamente.*
+> *Nota: Si añades un trabajo de una categoría que antes no tenía obras (por ejemplo `bolsos` o `otros`), tanto su tarjeta en la sección de categorías como su botón de filtro en la galería aparecerán automáticamente.*
 
 ---
 

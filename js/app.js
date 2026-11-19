@@ -22,7 +22,8 @@
         fimo: "¡Hola! Me gustaría pedir un Art Toy personalizado. Te paso una foto de referencia para que me digas si es posible.",
         bolsos: "¡Hola! Me gustaría pedir un bolso personalizado. Te paso una foto de referencia para que me digas si es posible.",
         cuadros: "¡Hola! Me gustaría pedir un cuadro personalizado. Te paso una foto de referencia para que me digas si es posible.",
-        ilustracion: "¡Hola! Me gustaría pedir una ilustración por encargo. Te paso una foto de referencia para que me digas si es posible."
+        ilustracion: "¡Hola! Me gustaría pedir una ilustración por encargo. Te paso una foto de referencia para que me digas si es posible.",
+        otros: "¡Hola! Me gustaría pedirte un encargo especial. Te cuento la idea y te mando referencias."
       }
     },
 
@@ -41,12 +42,18 @@
       {
         id: "cuadros",
         nombre: "Cuadros",
-        descripcion: "[DESCRIPCIÓN PENDIENTE]"
+        descripcion: "Retratos y piezas originales en técnica mixta."
       },
       {
         id: "ilustracion",
         nombre: "Ilustración por encargo",
         descripcion: "Piezas originales a tinta, plumilla y acuarela."
+      },
+      {
+        id: "otros",
+        nombre: "Otros encargos",
+        descripcion: "Piezas especiales hechas a medida, como maquetas. Si lo imaginas, pregúntame.",
+        mensajeWa: "¡Hola! Me gustaría pedirte un encargo especial. Te cuento la idea y te mando referencias."
       }
     ]
   };
@@ -121,7 +128,9 @@
       if (!primerTrabajo) return;
 
       const mensajeWa =
-        CONFIG.mensajesWa.porCategoria[cat.id] || CONFIG.mensajesWa.general;
+        cat.mensajeWa ||
+        CONFIG.mensajesWa.porCategoria[cat.id] ||
+        CONFIG.mensajesWa.general;
       const urlWa = construirEnlaceWa(mensajeWa);
 
       const tarjeta = document.createElement("article");
@@ -314,7 +323,9 @@
     lightboxDesc.textContent = trabajo.descripcion;
 
     // Enlace de WhatsApp propio de la categoría para el botón del Lightbox
+    const catEncontrada = CONFIG.categorias.find((c) => c.id === trabajo.categoria);
     const mensajeWa =
+      catEncontrada?.mensajeWa ||
       CONFIG.mensajesWa.porCategoria[trabajo.categoria] ||
       CONFIG.mensajesWa.general;
     if (lightboxBtnWa) {

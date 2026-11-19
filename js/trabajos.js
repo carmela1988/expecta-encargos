@@ -26,17 +26,32 @@ const trabajos = [
   },
   {
     titulo: "Estatua en turquesa", categoria: "cuadros", imagen: "img/cuadros/estatua-turquesa.webp", ancho: 1200, alto: 1600,
-    descripcion: "Tinta y acrílico sobre papel, con salpicaduras en rojo."
+    descripcion: "Técnica mixta."
   },
   {
     titulo: "Retrato en violeta", categoria: "cuadros", imagen: "img/cuadros/retrato-violeta.webp", ancho: 1200, alto: 1600,
-    descripcion: "Tinta y acrílico sobre papel."
+    descripcion: "Técnica mixta."
   },
   {
     titulo: "Retrato en rojo", categoria: "cuadros", imagen: "img/cuadros/retrato-rojo.webp", ancho: 1200, alto: 1600,
-    descripcion: "Tinta y acrílico sobre papel."
+    descripcion: "Técnica mixta."
   },
   {
     titulo: "Retrato en spray", categoria: "cuadros", imagen: "img/cuadros/retrato-spray.webp", ancho: 1200, alto: 1600,
-    descripcion: "Acrílico y spray sobre papel."
+    descripcion: "Técnica mixta."
+  }, {
+    titulo: "Maqueta rústica: rincón con barreño", categoria: "otros", imagen: "img/otros/maqueta-rincon.webp", ancho: 1200, alto: 1600,
+    descripcion: "Detalle de maqueta hecha a mano: muro desconchado, ladrillo visto y puerta de madera envejecida."
+  },
+  {
+    titulo: "Maqueta rústica: la pila y el farol", categoria: "otros", imagen: "img/otros/maqueta-pila.webp", ancho: 1200, alto: 1600,
+    descripcion: "Detalle de maqueta hecha a mano: pila de lavar, grifo y farolillo en miniatura."
+  },
+  {
+    titulo: "Miniaturas: barreño y cubo", categoria: "otros", imagen: "img/otros/miniaturas-barreno-cubo.webp", ancho: 1600, alto: 1200,
+    descripcion: "Piezas en miniatura para la maqueta, con acabado de metal oxidado."
+  },
+  {
+    titulo: "Miniaturas de cocina", categoria: "otros", imagen: "img/otros/miniaturas-cocina.webp", ancho: 1600, alto: 1200,
+    descripcion: "Lechera, jarra esmaltada, cazo y rodillo en miniatura."
   },];

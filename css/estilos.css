@@ -236,13 +236,13 @@
 }
 
 /* ==========================================================================
-   1. Cabecera (Hero) con manchas de acuarela suaves
+   1. Cabecera (Hero) con manchas de acuarela vivas y suaves
    ========================================================================== */
 .expecta-encargos .hero {
   position: relative;
   padding: 100px 0 110px 0;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (min-width: 768px) {
@@ -258,7 +258,7 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
   z-index: 0;
 }
 
@@ -272,19 +272,27 @@
 }
 
 .expecta-encargos .mancha-hero-anil {
-  width: 440px;
-  height: 440px;
-  top: -100px;
+  width: 500px;
+  height: 500px;
+  top: -80px;
   right: 5%;
-  background: radial-gradient(circle, rgba(59, 63, 168, 0.22) 0%, rgba(59, 63, 168, 0.06) 60%, transparent 75%);
+  background: radial-gradient(circle at 50% 50%, rgba(59, 63, 168, 0.48) 0%, rgba(59, 63, 168, 0.22) 45%, rgba(59, 63, 168, 0) 70%);
 }
 
 .expecta-encargos .mancha-hero-lavanda {
-  width: 520px;
-  height: 520px;
-  bottom: -120px;
-  left: -80px;
-  background: radial-gradient(circle, rgba(156, 147, 200, 0.28) 0%, rgba(156, 147, 200, 0.08) 65%, transparent 80%);
+  width: 540px;
+  height: 480px;
+  top: 20px;
+  left: -40px;
+  background: radial-gradient(circle at 45% 45%, rgba(156, 147, 200, 0.52) 0%, rgba(156, 147, 200, 0.24) 48%, rgba(156, 147, 200, 0) 70%);
+}
+
+.expecta-encargos .mancha-hero-oro {
+  width: 340px;
+  height: 340px;
+  top: 100px;
+  left: 26%;
+  background: radial-gradient(circle at 50% 50%, rgba(168, 135, 63, 0.28) 0%, rgba(168, 135, 63, 0.12) 44%, rgba(168, 135, 63, 0) 68%);
 }
 
 .expecta-encargos .hero-contenido {
@@ -409,23 +417,30 @@
   width: 100%;
 }
 
-/* Tarjeta especial "Otra idea" */
+/* Tarjeta especial "Otra idea" como franja completa */
 .expecta-encargos .tarjeta-otra-idea {
-  background: linear-gradient(135deg, rgba(246, 243, 238, 1) 0%, rgba(156, 147, 200, 0.15) 100%);
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(246, 243, 238, 0.96) 0%, rgba(156, 147, 200, 0.22) 50%, rgba(59, 63, 168, 0.14) 100%);
   border: 1px dashed rgba(30, 27, 36, 0.35);
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 36px 28px;
+  padding: 44px 28px;
   text-align: center;
+  margin-top: 10px;
 }
 
 .expecta-encargos .tarjeta-otra-idea .categoria-titulo {
-  font-size: 1.85rem;
-  margin-bottom: 14px;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
 .expecta-encargos .tarjeta-otra-idea .categoria-desc {
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 28px;
 }
 
@@ -536,11 +551,12 @@
 }
 
 .expecta-encargos .trabajo-categoria {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--anil);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   display: block;
 }
 
@@ -706,9 +722,34 @@
 /* ==========================================================================
    4. Cómo funciona (3 pasos)
    ========================================================================= */
+.expecta-encargos .seccion-fondo-acuarela {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
 .expecta-encargos .seccion-proceso {
   position: relative;
-  padding: 40px 0;
+  padding: 60px 0;
+}
+
+.expecta-encargos .seccion-proceso .contenedor,
+.expecta-encargos .seccion-sobre-mi .contenedor {
+  position: relative;
+  z-index: 1;
+}
+
+.expecta-encargos .mancha-proceso {
+  width: 480px;
+  height: 480px;
+  top: 10px;
+  right: -50px;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 63, 168, 0.24) 0%, rgba(156, 147, 200, 0.15) 45%, rgba(59, 63, 168, 0) 70%);
 }
 
 .expecta-encargos .proceso-grid {
@@ -734,9 +775,10 @@
 
 .expecta-encargos .paso-numero {
   font-family: var(--fuente-titulos);
-  font-size: 3rem;
+  font-size: 3.4rem;
   line-height: 1;
-  color: var(--sepia);
+  color: var(--anil);
+  font-weight: 600;
   margin-bottom: 18px;
   display: block;
 }
@@ -758,7 +800,15 @@
    ========================================================================== */
 .expecta-encargos .seccion-sobre-mi {
   position: relative;
-  padding: 60px 0;
+  padding: 80px 0;
+}
+
+.expecta-encargos .mancha-sobre-mi {
+  width: 500px;
+  height: 500px;
+  top: 20px;
+  left: -50px;
+  background: radial-gradient(circle at 50% 50%, rgba(156, 147, 200, 0.25) 0%, rgba(168, 135, 63, 0.15) 45%, rgba(156, 147, 200, 0) 70%);
 }
 
 .expecta-encargos .sobre-mi-bloque {
