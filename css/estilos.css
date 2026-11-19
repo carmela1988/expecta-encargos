@@ -46,6 +46,8 @@
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
+  /* clip recorta lo que sobresale sin crear una zona con scroll lateral */
+  overflow-x: clip;
 }
 
 /* Enlaces base */
@@ -242,7 +244,9 @@
   position: relative;
   padding: 100px 0 110px 0;
   text-align: center;
-  overflow: visible;
+  /* Las manchas pueden salir por arriba/abajo, pero nunca ensanchar la página */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 @media (min-width: 768px) {
@@ -377,7 +381,6 @@
 .expecta-encargos .categoria-img-wrap {
   width: 100%;
   aspect-ratio: 3 / 4;
-  /* ← cambia 4 / 3 por 3 / 4 */
   overflow: hidden;
   background-color: rgba(30, 27, 36, 0.04);
 }
@@ -823,6 +826,7 @@
 .expecta-encargos .seccion-proceso {
   position: relative;
   padding: 60px 0;
+  overflow-x: clip;
 }
 
 .expecta-encargos .seccion-proceso .contenedor,
@@ -888,6 +892,7 @@
 .expecta-encargos .seccion-sobre-mi {
   position: relative;
   padding: 80px 0;
+  overflow-x: clip;
 }
 
 .expecta-encargos .mancha-sobre-mi {
@@ -1061,6 +1066,32 @@
   .expecta-encargos .btn-wa-flotante {
     display: none;
   }
+}
+
+/* ==========================================================================
+   Ajustes para móvil: que nada sea más ancho que la pantalla
+   ========================================================================== */
+
+/* Los elementos de una rejilla no pueden ser más anchos que su columna */
+.expecta-encargos .categorias-grid > *,
+.expecta-encargos .galeria-grid > *,
+.expecta-encargos .proceso-grid > * {
+  min-width: 0;
+}
+
+/* En móvil, manchas más pequeñas para que no tapen el texto */
+@media (max-width: 767px) {
+  .expecta-encargos .mancha {
+    max-width: 75vw;
+    max-height: 75vw;
+  }
+}
+
+/* Red de seguridad: sin desplazamiento lateral en toda la página */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ==========================================================================
