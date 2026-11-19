@@ -131,23 +131,31 @@
 
     <hr class="separador-fino" aria-hidden="true">
 
-    <!-- 5. Sobre mí (Texto oficial artesanal) -->
+    <!-- 5. Sobre mí (Texto oficial artesanal con fotografía) -->
     <section class="seccion-sobre-mi" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
       <div class="seccion-fondo-acuarela" aria-hidden="true">
         <div class="mancha mancha-sobre-mi"></div>
       </div>
       <div class="contenedor">
-        <div class="sobre-mi-bloque">
-          <h2 class="seccion-titulo" id="titulo-sobre-mi">Sobre mí</h2>
-          <blockquote class="sobre-mi-texto">
-            Detrás de la firma Expecta D.M. hay una tatuadora que no deja de dibujar. Trabajo a tinta, plumilla y
-            acuarela, y también modelo en fimo Art Toys: figuras que retratan a una persona, con su ropa, sus gestos y sus
-            manías. Me encantan los encargos con historia. Cuéntame la tuya y la convertimos en una pieza hecha a mano,
-            solo para ti.
-          </blockquote>
-          <span class="sobre-mi-firma">Expecta D.M.</span>
+          <div class="sobre-mi-layout">
+            <div class="sobre-mi-foto-wrap">
+              <img src="img/sobre-mi/expecta.webp" alt="Expecta D.M., la artista" width="900" height="1600"
+                loading="lazy" class="sobre-mi-foto">
+            </div>
+            <div class="sobre-mi-bloque">
+              <h2 class="seccion-titulo" id="titulo-sobre-mi">Sobre mí</h2>
+              <blockquote class="sobre-mi-texto">
+                Detrás de la firma Expecta D.M. hay una tatuadora que no deja de dibujar. Trabajo a tinta, plumilla y
+                acuarela, y también modelo en fimo Art Toys: figuras que retratan a una persona, con su ropa, sus gestos
+                y sus
+                manías. Me encantan los encargos con historia. Cuéntame la tuya y la convertimos en una pieza hecha a
+                mano,
+                solo para ti.
+              </blockquote>
+              <span class="sobre-mi-firma">Expecta D.M.</span>
+            </div>
+          </div>
         </div>
-      </div>
     </section>
   </main>
 
@@ -204,6 +212,7 @@
           <span class="lightbox-cat" id="lightbox-cat"></span>
           <h3 class="lightbox-titulo" id="lightbox-titulo"></h3>
           <p class="lightbox-desc" id="lightbox-desc"></p>
+          <span class="lightbox-contador" id="lightbox-contador" aria-live="polite"></span>
         </div>
         <div>
           <a href="#" id="lightbox-btn-wa" target="_blank" rel="noopener noreferrer" class="boton boton-primario">
