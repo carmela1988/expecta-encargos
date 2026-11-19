@@ -1,0 +1,893 @@
+/* ==========================================================================
+   Expecta D.M. · Arte por encargo
+   Sistema visual artesanal (tinta, plumilla y acuarela sobre papel)
+   Todo el estilo está encapsulado bajo la clase raíz .expecta-encargos
+   ========================================================================== */
+
+:root,
+.expecta-encargos {
+  /* Paleta cromática oficial */
+  --papel: #F6F3EE;
+  --tinta: #1E1B24;
+  --anil: #3B3FA8;
+  --lavanda: #9C93C8;
+  --sepia: #8A4A32;
+  --oro: #A8873F;
+  --rojo: #C8343A;
+
+  /* Tipografía */
+  --fuente-titulos: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Sombras y radios */
+  --sombra-tarjeta: 0 10px 30px rgba(30, 27, 36, 0.08);
+  --sombra-flotante: 0 8px 24px rgba(30, 27, 36, 0.16);
+  --radio-suave: 4px;
+
+  /* Transición estándar suave */
+  --transicion-suave: all 350ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Reset y caja dentro del contenedor */
+.expecta-encargos,
+.expecta-encargos * {
+  box-sizing: border-box;
+}
+
+.expecta-encargos {
+  margin: 0;
+  padding: 0;
+  background-color: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Enlaces base */
+.expecta-encargos a {
+  color: var(--tinta);
+  text-decoration: none;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos a:hover {
+  color: var(--sepia);
+}
+
+/* Accesibilidad foco teclado */
+.expecta-encargos a:focus-visible,
+.expecta-encargos button:focus-visible,
+.expecta-encargos [tabindex="0"]:focus-visible {
+  outline: 2px solid var(--anil);
+  outline-offset: 3px;
+}
+
+/* Oculto accesible */
+.expecta-encargos .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estructura y contenedor central */
+.expecta-encargos .contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .contenedor {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Títulos y jerarquías */
+.expecta-encargos h1,
+.expecta-encargos h2,
+.expecta-encargos h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 500;
+  color: var(--tinta);
+  margin-top: 0;
+  line-height: 1.25;
+}
+
+.expecta-encargos .seccion-encabezado {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px auto;
+}
+
+.expecta-encargos .seccion-titulo {
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.expecta-encargos .seccion-subtitulo {
+  font-size: 1.05rem;
+  color: rgba(30, 27, 36, 0.78);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .seccion-titulo {
+    font-size: 2.8rem;
+  }
+}
+
+/* Separadores artesanales */
+.expecta-encargos .separador-fino {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background-color: rgba(30, 27, 36, 0.2);
+  margin: 72px auto;
+  border: none;
+}
+
+/* Botones artesanales */
+.expecta-encargos .boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--tinta);
+  border-radius: var(--radio-suave);
+  background-color: transparent;
+  color: var(--tinta);
+  cursor: pointer;
+  transition: var(--transicion-suave);
+  text-decoration: none;
+}
+
+.expecta-encargos .boton:hover {
+  background-color: var(--anil);
+  color: var(--papel);
+  border-color: var(--anil);
+}
+
+.expecta-encargos .boton-primario {
+  background-color: var(--tinta);
+  color: var(--papel);
+}
+
+.expecta-encargos .boton-primario:hover {
+  background-color: var(--anil);
+  border-color: var(--anil);
+}
+
+.expecta-encargos .boton-icono {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Barra de navegación */
+.expecta-encargos .nav-barra {
+  border-bottom: 1px solid rgba(30, 27, 36, 0.12);
+  padding: 18px 0;
+  background-color: rgba(246, 243, 238, 0.94);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.expecta-encargos .nav-interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expecta-encargos .nav-logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--tinta);
+}
+
+.expecta-encargos .nav-enlaces {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.expecta-encargos .nav-enlaces a {
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(30, 27, 36, 0.75);
+}
+
+.expecta-encargos .nav-enlaces a:hover {
+  color: var(--anil);
+}
+
+@media (max-width: 767px) {
+  .expecta-encargos .nav-enlaces {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   1. Cabecera (Hero) con manchas de acuarela suaves
+   ========================================================================== */
+.expecta-encargos .hero {
+  position: relative;
+  padding: 100px 0 110px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .hero {
+    padding: 140px 0 150px 0;
+  }
+}
+
+.expecta-encargos .hero-fondo-acuarela {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Manchas orgánicas de acuarela con filtro SVG */
+.expecta-encargos .mancha {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: url(#filtro-acuarela);
+  z-index: 0;
+}
+
+.expecta-encargos .mancha-hero-anil {
+  width: 440px;
+  height: 440px;
+  top: -100px;
+  right: 5%;
+  background: radial-gradient(circle, rgba(59, 63, 168, 0.22) 0%, rgba(59, 63, 168, 0.06) 60%, transparent 75%);
+}
+
+.expecta-encargos .mancha-hero-lavanda {
+  width: 520px;
+  height: 520px;
+  bottom: -120px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(156, 147, 200, 0.28) 0%, rgba(156, 147, 200, 0.08) 65%, transparent 80%);
+}
+
+.expecta-encargos .hero-contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.expecta-encargos .hero-marca {
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--sepia);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.expecta-encargos .hero-titulo {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .hero-titulo {
+    font-size: 4.4rem;
+  }
+}
+
+.expecta-encargos .hero-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   2. Categorías de encargos
+   ========================================================================== */
+.expecta-encargos .seccion-categorias {
+  position: relative;
+  padding: 30px 0;
+}
+
+.expecta-encargos .categorias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 680px) {
+  .expecta-encargos .categorias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .expecta-encargos .categorias-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expecta-encargos .tarjeta-categoria {
+  background-color: var(--papel);
+  border: 1px solid rgba(30, 27, 36, 0.15);
+  border-radius: var(--radio-suave);
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .tarjeta-categoria:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 63, 168, 0.4);
+}
+
+.expecta-encargos .categoria-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: rgba(30, 27, 36, 0.04);
+}
+
+.expecta-encargos .categoria-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+
+.expecta-encargos .tarjeta-categoria:hover .categoria-img {
+  transform: scale(1.03);
+}
+
+.expecta-encargos .categoria-cuerpo {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.expecta-encargos .categoria-titulo {
+  font-size: 1.65rem;
+  margin-bottom: 10px;
+}
+
+.expecta-encargos .categoria-desc {
+  font-size: 0.98rem;
+  color: rgba(30, 27, 36, 0.8);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.expecta-encargos .categoria-btn {
+  align-self: flex-start;
+  width: 100%;
+}
+
+/* Tarjeta especial "Otra idea" */
+.expecta-encargos .tarjeta-otra-idea {
+  background: linear-gradient(135deg, rgba(246, 243, 238, 1) 0%, rgba(156, 147, 200, 0.15) 100%);
+  border: 1px dashed rgba(30, 27, 36, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 28px;
+  text-align: center;
+}
+
+.expecta-encargos .tarjeta-otra-idea .categoria-titulo {
+  font-size: 1.85rem;
+  margin-bottom: 14px;
+}
+
+.expecta-encargos .tarjeta-otra-idea .categoria-desc {
+  margin-bottom: 28px;
+}
+
+.expecta-encargos .tarjeta-otra-idea .boton {
+  align-self: center;
+}
+
+/* ==========================================================================
+   3. Galería interactiva y filtros
+   ========================================================================== */
+.expecta-encargos .seccion-galeria {
+  position: relative;
+  padding: 40px 0;
+}
+
+.expecta-encargos .galeria-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.expecta-encargos .btn-filtro {
+  padding: 8px 18px;
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: var(--tinta);
+  border: 1px solid rgba(30, 27, 36, 0.25);
+  border-radius: var(--radio-suave);
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .btn-filtro:hover {
+  border-color: var(--tinta);
+  color: var(--anil);
+}
+
+.expecta-encargos .btn-filtro.activo {
+  background-color: var(--anil);
+  color: var(--papel);
+  border-color: var(--anil);
+}
+
+.expecta-encargos .galeria-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 580px) {
+  .expecta-encargos .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .expecta-encargos .galeria-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expecta-encargos .tarjeta-trabajo {
+  background-color: var(--papel);
+  border: 1px solid rgba(30, 27, 36, 0.12);
+  border-radius: var(--radio-suave);
+  box-shadow: var(--sombra-tarjeta);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transicion-suave);
+  outline: none;
+}
+
+.expecta-encargos .tarjeta-trabajo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(30, 27, 36, 0.12);
+  border-color: rgba(59, 63, 168, 0.35);
+}
+
+.expecta-encargos .trabajo-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: rgba(30, 27, 36, 0.04);
+}
+
+.expecta-encargos .trabajo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 500ms ease;
+}
+
+.expecta-encargos .tarjeta-trabajo:hover .trabajo-img {
+  transform: scale(1.04);
+}
+
+.expecta-encargos .trabajo-cuerpo {
+  padding: 18px 20px 20px 20px;
+}
+
+.expecta-encargos .trabajo-categoria {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--anil);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.expecta-encargos .trabajo-titulo {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.expecta-encargos .trabajo-desc {
+  font-size: 0.92rem;
+  color: rgba(30, 27, 36, 0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Lightbox (Visor a pantalla completa)
+   ========================================================================== */
+.expecta-encargos .lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 27, 36, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.expecta-encargos .lightbox.abierto {
+  opacity: 1;
+  visibility: visible;
+}
+
+.expecta-encargos .lightbox-contenedor {
+  background-color: var(--papel);
+  border-radius: var(--radio-suave);
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 840px) {
+  .expecta-encargos .lightbox-contenedor {
+    flex-direction: row;
+    max-height: 84vh;
+  }
+}
+
+.expecta-encargos .lightbox-visual {
+  background-color: #121017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 1 1 60%;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.expecta-encargos .lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+
+.expecta-encargos .lightbox-info {
+  flex: 1 1 40%;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.expecta-encargos .lightbox-cat {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anil);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.expecta-encargos .lightbox-titulo {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.expecta-encargos .lightbox-desc {
+  font-size: 1rem;
+  color: rgba(30, 27, 36, 0.85);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.expecta-encargos .lightbox-cerrar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(246, 243, 238, 0.9);
+  border: 1px solid rgba(30, 27, 36, 0.2);
+  border-radius: var(--radio-suave);
+  color: var(--tinta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .lightbox-cerrar:hover {
+  background-color: var(--anil);
+  color: var(--papel);
+  border-color: var(--anil);
+}
+
+.expecta-encargos .lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background-color: rgba(246, 243, 238, 0.85);
+  border: 1px solid rgba(30, 27, 36, 0.15);
+  border-radius: var(--radio-suave);
+  color: var(--tinta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .lightbox-nav:hover {
+  background-color: var(--anil);
+  color: var(--papel);
+  border-color: var(--anil);
+}
+
+.expecta-encargos .lightbox-prev {
+  left: 12px;
+}
+
+.expecta-encargos .lightbox-next {
+  right: 12px;
+}
+
+/* ==========================================================================
+   4. Cómo funciona (3 pasos)
+   ========================================================================= */
+.expecta-encargos .seccion-proceso {
+  position: relative;
+  padding: 40px 0;
+}
+
+.expecta-encargos .proceso-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .proceso-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expecta-encargos .paso-tarjeta {
+  background-color: var(--papel);
+  border: 1px solid rgba(30, 27, 36, 0.15);
+  border-radius: var(--radio-suave);
+  padding: 36px 28px;
+  position: relative;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.expecta-encargos .paso-numero {
+  font-family: var(--fuente-titulos);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--sepia);
+  margin-bottom: 18px;
+  display: block;
+}
+
+.expecta-encargos .paso-titulo {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.expecta-encargos .paso-texto {
+  font-size: 0.98rem;
+  color: rgba(30, 27, 36, 0.8);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. Sobre mí (Texto editorial artesanal)
+   ========================================================================== */
+.expecta-encargos .seccion-sobre-mi {
+  position: relative;
+  padding: 60px 0;
+}
+
+.expecta-encargos .sobre-mi-bloque {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.expecta-encargos .sobre-mi-texto {
+  font-family: var(--fuente-titulos);
+  font-size: 1.55rem;
+  line-height: 1.65;
+  color: var(--tinta);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 32px 0;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .sobre-mi-texto {
+    font-size: 1.95rem;
+  }
+}
+
+.expecta-encargos .sobre-mi-firma {
+  font-family: var(--fuente-texto);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sepia);
+  display: block;
+}
+
+/* ==========================================================================
+   6. Pie de página (Footer)
+   ========================================================================== */
+.expecta-encargos .pie-pagina {
+  border-top: 1px solid rgba(30, 27, 36, 0.2);
+  padding: 50px 0 60px 0;
+  text-align: center;
+  background-color: var(--papel);
+}
+
+.expecta-encargos .pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 600px) {
+  .expecta-encargos .pie-enlaces {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+.expecta-encargos .pie-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--tinta);
+}
+
+.expecta-encargos .pie-enlace:hover {
+  color: var(--anil);
+}
+
+.expecta-encargos .pie-creditos {
+  font-size: 0.88rem;
+  color: rgba(30, 27, 36, 0.65);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Botón flotante de WhatsApp (móvil)
+   ========================================================================== */
+.expecta-encargos .btn-wa-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background-color: var(--tinta);
+  color: var(--papel);
+  border: 1px solid var(--tinta);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-flotante);
+  z-index: 99;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .btn-wa-flotante:hover {
+  background-color: var(--anil);
+  border-color: var(--anil);
+  color: var(--papel);
+  transform: scale(1.06);
+}
+
+.expecta-encargos .btn-wa-flotante svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
+  .expecta-encargos .btn-wa-flotante {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Accesibilidad: Reducción de movimiento
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .expecta-encargos *,
+  .expecta-encargos *::before,
+  .expecta-encargos *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Expecta D.M. · Arte por encargo. Piezas únicas hechas a mano: figuras de fimo Art Toys e ilustraciones personalizadas a tinta y acuarela.">
+  <title>Expecta D.M. · Arte por encargo</title>
+
+  <!-- Google Fonts: Cormorant Garamond y Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Estilos encapsulados -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="expecta-encargos">
+
+  <!-- Filtro SVG para simular los bordes irregulares de la acuarela sobre papel -->
+  <svg class="svg-filtros" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;"
+    version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="filtro-acuarela" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Navegación principal -->
+  <nav class="nav-barra" aria-label="Navegación principal">
+    <div class="contenedor nav-interior">
+      <a href="#inicio" class="nav-logo">Expecta D.M.</a>
+      <ul class="nav-enlaces">
+        <li><a href="#categorias">Categorías</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 1. Cabecera (Hero): Sin foto, fondo papel con manchas de acuarela en añil y lavanda -->
+  <header class="hero" id="inicio">
+    <div class="hero-fondo-acuarela" aria-hidden="true">
+      <div class="mancha mancha-hero-anil"></div>
+      <div class="mancha mancha-hero-lavanda"></div>
+    </div>
+    <div class="contenedor hero-contenido">
+      <span class="hero-marca">Expecta D.M. · Arte por encargo</span>
+      <h1 class="hero-titulo">Piezas únicas, hechas a mano para ti</h1>
+      <div class="hero-acciones">
+        <a href="#" id="hero-btn-wa" target="_blank" rel="noopener noreferrer" class="boton boton-primario">
+          Cuéntame tu idea
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Categorías de encargos -->
+    <section class="seccion-categorias contenedor" id="categorias" aria-labelledby="titulo-categorias">
+      <div class="seccion-encabezado">
+        <h2 class="seccion-titulo" id="titulo-categorias">Categorías de encargos</h2>
+        <p class="seccion-subtitulo">Cada proyecto es único y se elabora a mano con atención a cada detalle.</p>
+      </div>[index.html](file;file:///c%3A/Users/cdmer/Desktop/CONQUER%20BLOCKS/Proyectos/expecta-encargos/index.html)
+      <div class="categorias-grid" id="contenedor-categorias">
+        <!-- Renderizado dinámicamente mediante js/app.js -->
+      </div>
+    </section>
+
+    <hr class="separador-fino" aria-hidden="true">
+
+    <!-- 3. Galería interactiva con filtros y visor -->
+    <section class="seccion-galeria contenedor" id="galeria" aria-labelledby="titulo-galeria">
+      <div class="seccion-encabezado">
+        <h2 class="seccion-titulo" id="titulo-galeria">Galería de trabajos</h2>
+        <p class="seccion-subtitulo">Selección de piezas y encargos realizados. Pulsa en cualquiera para verla en
+          detalle.</p>
+      </div>
+
+      <!-- Barra de filtros dinámicos -->
+      <div class="galeria-filtros" id="galeria-filtros" role="toolbar" aria-label="Filtros por categoría">
+        <!-- Generado dinámicamente según categorías activas -->
+      </div>
+
+      <!-- Cuadrícula de obras -->
+      <div class="galeria-grid" id="galeria-grid">
+        <!-- Generado dinámicamente desde js/trabajos.js -->
+      </div>
+    </section>
+
+    <hr class="separador-fino" aria-hidden="true">
+
+    <!-- 4. Cómo funciona (3 pasos) -->
+    <section class="seccion-proceso contenedor" id="como-funciona" aria-labelledby="titulo-proceso">
+      <div class="seccion-encabezado">
+        <h2 class="seccion-titulo" id="titulo-proceso">Cómo funciona</h2>
+        <p class="seccion-subtitulo">Un proceso sencillo y cercano, de principio a fin.</p>
+      </div>
+      <div class="proceso-grid">
+        <article class="paso-tarjeta">
+          <span class="paso-numero">01</span>
+          <h3 class="paso-titulo">La idea</h3>
+          <p class="paso-texto">Cuéntame tu idea y mándame una foto de referencia.</p>
+        </article>
+        <article class="paso-tarjeta">
+          <span class="paso-numero">02</span>
+          <h3 class="paso-titulo">El diseño</h3>
+          <p class="paso-texto">Te preparo boceto y presupuesto.</p>
+        </article>
+        <article class="paso-tarjeta">
+          <span class="paso-numero">03</span>
+          <h3 class="paso-titulo">La creación</h3>
+          <p class="paso-texto">Lo creo a mano y te lo envío.</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="separador-fino" aria-hidden="true">
+
+    <!-- 5. Sobre mí (Texto oficial artesanal) -->
+    <section class="seccion-sobre-mi contenedor" id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+      <div class="sobre-mi-bloque">
+        <h2 class="seccion-titulo" id="titulo-sobre-mi">Sobre mí</h2>
+        <blockquote class="sobre-mi-texto">
+          Detrás de la firma Expecta D.M. hay una tatuadora que no deja de dibujar. Trabajo a tinta, plumilla y
+          acuarela, y también modelo en fimo Art Toys: figuras que retratan a una persona, con su ropa, sus gestos y sus
+          manías. Me encantan los encargos con historia. Cuéntame la tuya y la convertimos en una pieza hecha a mano,
+          solo para ti.
+        </blockquote>
+        <span class="sobre-mi-firma">Expecta D.M.</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. Pie de página (Footer) -->
+  <footer class="pie-pagina" id="contacto">
+    <div class="contenedor">
+      <div class="pie-enlaces">
+        <a href="#" id="pie-enlace-ig" target="_blank" rel="noopener noreferrer" class="pie-enlace">
+          <!-- Enlace único a Instagram completado por JS -->
+          Instagram · Hic Sunt Tattoo (@hic_sunt_tattoo)
+        </a>
+        <a href="#" id="pie-enlace-wa" target="_blank" rel="noopener noreferrer" class="pie-enlace">
+          <!-- Enlace a WhatsApp completado por JS -->
+          WhatsApp (+34 624 93 94 26)
+        </a>
+      </div>
+      <p class="pie-creditos">
+        Expecta D.M. · <span id="anio-actual"></span> · Piezas únicas hechas a mano
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lightbox / Visor de obra accesible -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visor de obra">
+    <div class="lightbox-contenedor">
+      <button type="button" class="lightbox-cerrar" id="lightbox-cerrar" aria-label="Cerrar visor">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Obra anterior">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Obra siguiente">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-visual">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+      </div>
+
+      <div class="lightbox-info">
+        <div>
+          <span class="lightbox-cat" id="lightbox-cat"></span>
+          <h3 class="lightbox-titulo" id="lightbox-titulo"></h3>
+          <p class="lightbox-desc" id="lightbox-desc"></p>
+        </div>
+        <div>
+          <a href="#" id="lightbox-btn-wa" target="_blank" rel="noopener noreferrer" class="boton boton-primario">
+            Pide el tuyo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón flotante de WhatsApp (móvil) -->
+  <a href="#" id="btn-wa-flotante" class="btn-wa-flotante" target="_blank" rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp para encargo personalizado">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.17 8.17 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.45 0-2.86-.38-4.11-1.12l-.29-.18-3.06.8 1.05-2.98-.19-.31a8.18 8.18 0 0 1-1.27-4.45c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.13-.17.25-.66.8-.81.97-.15.17-.3.19-.55.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.24.25-.4.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z" />
+    </svg>
+  </a>
+
+  <!-- Datos y scripts -->
+  <script src="js/trabajos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
