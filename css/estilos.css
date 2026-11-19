@@ -376,7 +376,8 @@
 
 .expecta-encargos .categoria-img-wrap {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
+  /* ← cambia 4 / 3 por 3 / 4 */
   overflow: hidden;
   background-color: rgba(30, 27, 36, 0.04);
 }
@@ -385,6 +386,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
   transition: transform 600ms ease;
 }
@@ -529,7 +531,7 @@
 .expecta-encargos .trabajo-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background-color: rgba(30, 27, 36, 0.04);
   cursor: pointer;
@@ -588,6 +590,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
   transition: transform 500ms ease;
 }
@@ -896,180 +899,181 @@
 }
 
 
+.expecta-encargos .sobre-mi-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  max-width: 1040px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (min-width: 860px) {
   .expecta-encargos .sobre-mi-layout {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 36px;
-    max-width: 1040px;
-    margin: 0 auto;
-    position: relative;
+    gap: 56px;
   }
+}
 
-  @media (min-width: 860px) {
-    .expecta-encargos .sobre-mi-layout {
-      flex-direction: row;
-      align-items: center;
-      gap: 56px;
-    }
-  }
+.expecta-encargos .sobre-mi-foto-wrap {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9 / 14;
+  flex-shrink: 0;
+  border-radius: var(--radio-suave);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+}
 
+@media (min-width: 860px) {
   .expecta-encargos .sobre-mi-foto-wrap {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 9 / 14;
-    flex-shrink: 0;
-    border-radius: var(--radio-suave);
-    overflow: hidden;
-    box-shadow: var(--sombra-tarjeta);
+    max-width: 350px;
   }
+}
 
-  @media (min-width: 860px) {
-    .expecta-encargos .sobre-mi-foto-wrap {
-      max-width: 350px;
-    }
-  }
+.expecta-encargos .sobre-mi-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
 
-  .expecta-encargos .sobre-mi-foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+.expecta-encargos .sobre-mi-bloque {
+  flex: 1;
+  text-align: left;
+  position: relative;
+}
 
+@media (max-width: 859px) {
   .expecta-encargos .sobre-mi-bloque {
-    flex: 1;
-    text-align: left;
-    position: relative;
+    text-align: center;
   }
+}
 
-  @media (max-width: 859px) {
-    .expecta-encargos .sobre-mi-bloque {
-      text-align: center;
-    }
-  }
+.expecta-encargos .sobre-mi-texto {
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+  line-height: 1.65;
+  color: var(--tinta);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 28px 0;
+}
 
+@media (min-width: 768px) {
   .expecta-encargos .sobre-mi-texto {
-    font-family: var(--fuente-titulos);
-    font-size: 1.45rem;
-    line-height: 1.65;
-    color: var(--tinta);
-    font-style: italic;
-    font-weight: 500;
-    margin: 0 0 28px 0;
+    font-size: 1.85rem;
   }
+}
 
-  @media (min-width: 768px) {
-    .expecta-encargos .sobre-mi-texto {
-      font-size: 1.85rem;
-    }
-  }
+.expecta-encargos .sobre-mi-firma {
+  font-family: var(--fuente-texto);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sepia);
+  display: block;
+}
 
-  .expecta-encargos .sobre-mi-firma {
-    font-family: var(--fuente-texto);
-    font-size: 0.9rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sepia);
-    display: block;
-  }
-
-  /* ==========================================================================
+/* ==========================================================================
    6. Pie de página (Footer)
    ========================================================================== */
-  .expecta-encargos .pie-pagina {
-    border-top: 1px solid rgba(30, 27, 36, 0.2);
-    padding: 50px 0 60px 0;
-    text-align: center;
-    background-color: var(--papel);
-  }
+.expecta-encargos .pie-pagina {
+  border-top: 1px solid rgba(30, 27, 36, 0.2);
+  padding: 50px 0 60px 0;
+  text-align: center;
+  background-color: var(--papel);
+}
 
+.expecta-encargos .pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 600px) {
   .expecta-encargos .pie-enlaces {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
   }
+}
 
-  @media (min-width: 600px) {
-    .expecta-encargos .pie-enlaces {
-      flex-direction: row;
-      justify-content: center;
-      gap: 32px;
-    }
-  }
+.expecta-encargos .pie-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--tinta);
+}
 
-  .expecta-encargos .pie-enlace {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    color: var(--tinta);
-  }
+.expecta-encargos .pie-enlace:hover {
+  color: var(--anil);
+}
 
-  .expecta-encargos .pie-enlace:hover {
-    color: var(--anil);
-  }
+.expecta-encargos .pie-creditos {
+  font-size: 0.88rem;
+  color: rgba(30, 27, 36, 0.65);
+  margin: 0;
+}
 
-  .expecta-encargos .pie-creditos {
-    font-size: 0.88rem;
-    color: rgba(30, 27, 36, 0.65);
-    margin: 0;
-  }
-
-  /* ==========================================================================
+/* ==========================================================================
    Botón flotante de WhatsApp (móvil)
    ========================================================================== */
+.expecta-encargos .btn-wa-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background-color: var(--tinta);
+  color: var(--papel);
+  border: 1px solid var(--tinta);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-flotante);
+  z-index: 99;
+  transition: var(--transicion-suave);
+}
+
+.expecta-encargos .btn-wa-flotante:hover {
+  background-color: var(--anil);
+  border-color: var(--anil);
+  color: var(--papel);
+  transform: scale(1.06);
+}
+
+.expecta-encargos .btn-wa-flotante svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
   .expecta-encargos .btn-wa-flotante {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
-    background-color: var(--tinta);
-    color: var(--papel);
-    border: 1px solid var(--tinta);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--sombra-flotante);
-    z-index: 99;
-    transition: var(--transicion-suave);
+    display: none;
   }
+}
 
-  .expecta-encargos .btn-wa-flotante:hover {
-    background-color: var(--anil);
-    border-color: var(--anil);
-    color: var(--papel);
-    transform: scale(1.06);
-  }
-
-  .expecta-encargos .btn-wa-flotante svg {
-    width: 26px;
-    height: 26px;
-    fill: currentColor;
-  }
-
-  @media (min-width: 768px) {
-    .expecta-encargos .btn-wa-flotante {
-      display: none;
-    }
-  }
-
-  /* ==========================================================================
+/* ==========================================================================
    Accesibilidad: Reducción de movimiento
    ========================================================================== */
-  @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
 
-    .expecta-encargos *,
-    .expecta-encargos *::before,
-    .expecta-encargos *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  .expecta-encargos *,
+  .expecta-encargos *::before,
+  .expecta-encargos *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}

@@ -72,6 +72,7 @@ const trabajos = [
     categoria: "otros",
     descripcion: "Maqueta hecha a mano con miniaturas: muros desconchados, ladrillo visto, pila de lavar, farol y utensilios envejecidos.",
     imagenes: [
+      { src: "img/otros/maqueta-completa.webp", ancho: 1200, alto: 1600, alt: "Maqueta rústica completa: estancia encalada con vigas de madera, puerta, pila de lavar y barreño" },
       { src: "img/otros/maqueta-rincon.webp", ancho: 1200, alto: 1600, alt: "Rincón de la maqueta: muro desconchado, barreño y puerta de madera" },
       { src: "img/otros/maqueta-pila.webp", ancho: 1200, alto: 1600, alt: "Detalle de la maqueta: pila de lavar, grifo y farolillo" },
       { src: "img/otros/miniaturas-barreno-cubo.webp", ancho: 1600, alto: 1200, alt: "Miniaturas de barreño y cubo con acabado oxidado" },
