@@ -16,16 +16,16 @@
 
     // Todos los mensajes de WhatsApp se definen exclusivamente aquí
     mensajesWa: {
-      general:   "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
-      otraIdea:  "¡Hola! Tengo una idea para un encargo personalizado y me gustaría ver si es posible. Te paso una foto de referencia.",
-      flotante:  "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
-      pie:       "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
+      general: "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
+      otraIdea: "¡Hola! Tengo una idea para un encargo personalizado y me gustaría ver si es posible. Te paso una foto de referencia.",
+      flotante: "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
+      pie: "¡Hola! Me gustaría hacerte una consulta sobre un encargo personalizado. Te paso una foto de referencia.",
       porCategoria: {
-        fimo:       "¡Hola! Me gustaría pedir un Art Toy personalizado. Te paso una foto de referencia para que me digas si es posible.",
-        bolsos:     "¡Hola! Me gustaría pedir un bolso personalizado. Te paso una foto de referencia para que me digas si es posible.",
-        cuadros:    "¡Hola! Me gustaría pedir un cuadro personalizado. Te paso una foto de referencia para que me digas si es posible.",
-        ilustracion:"¡Hola! Me gustaría pedir una ilustración por encargo. Te paso una foto de referencia para que me digas si es posible.",
-        maquetas:   "¡Hola! Me gustaría pedirte un encargo especial. Te cuento la idea y te mando referencias.",
+        fimo: "¡Hola! Me gustaría pedir un Art Toy personalizado. Te paso una foto de referencia para que me digas si es posible.",
+        bolsos: "¡Hola! Me gustaría pedir un bolso personalizado. Te paso una foto de referencia para que me digas si es posible.",
+        cuadros: "¡Hola! Me gustaría pedir un cuadro personalizado. Te paso una foto de referencia para que me digas si es posible.",
+        ilustracion: "¡Hola! Me gustaría pedir una ilustración por encargo. Te paso una foto de referencia para que me digas si es posible.",
+        maquetas: "¡Hola! Me gustaría pedirte un encargo especial. Te cuento la idea y te mando referencias.",
       },
     },
 
@@ -62,6 +62,7 @@
 
   // Categorías que muestran la obra entera (object-fit: contain sobre --papel-claro)
   const CATS_CONTAIN = ["cuadros", "ilustracion"];
+  const CATS_CONTAIN_PORTADA = ["ilustracion"];
 
   // ── UTILIDADES ────────────────────────────────────────────────────────────
 
@@ -95,39 +96,39 @@
   };
 
   // ── ESTADO DEL LIGHTBOX ───────────────────────────────────────────────────
-  let fotosLightbox    = []; // array plano de {src, ancho, alto, alt, trabajo}
+  let fotosLightbox = []; // array plano de {src, ancho, alto, alt, trabajo}
   let fotoLightboxIndex = 0;
   let elementoPrevioFoco = null;
-  let isZoomed    = false;
-  let zoomScale   = 1;
-  let panX        = 0;
-  let panY        = 0;
-  let isDragging  = false;
-  let dragStartX  = 0;
-  let dragStartY  = 0;
+  let isZoomed = false;
+  let zoomScale = 1;
+  let panX = 0;
+  let panY = 0;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartY = 0;
   let initialPanX = 0;
   let initialPanY = 0;
-  let hasDragged  = false;
+  let hasDragged = false;
   let lastTouchTime = 0;
 
   // ── REFERENCIAS AL DOM ────────────────────────────────────────────────────
   const contenedorCategorias = document.getElementById("contenedor-categorias");
-  const contenedorGaleria    = document.getElementById("galeria-grid");
-  const lightbox             = document.getElementById("lightbox");
-  const lightboxVisual       = lightbox?.querySelector(".lightbox-visual");
-  const lightboxImg          = document.getElementById("lightbox-img");
-  const lightboxTitulo       = document.getElementById("lightbox-titulo");
-  const lightboxCat          = document.getElementById("lightbox-cat");
-  const lightboxDesc         = document.getElementById("lightbox-desc");
-  const lightboxContador     = document.getElementById("lightbox-contador");
-  const lightboxBtnWa        = document.getElementById("lightbox-btn-wa");
-  const btnCerrarLightbox    = document.getElementById("lightbox-cerrar");
-  const btnPrevLightbox      = document.getElementById("lightbox-prev");
-  const btnNextLightbox      = document.getElementById("lightbox-next");
-  const btnHeroWa            = document.getElementById("hero-btn-wa");
-  const btnWaFlotante        = document.getElementById("btn-wa-flotante");
-  const pieEnlaceWa          = document.getElementById("pie-enlace-wa");
-  const anioActualEl         = document.getElementById("anio-actual");
+  const contenedorGaleria = document.getElementById("galeria-grid");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxVisual = lightbox?.querySelector(".lightbox-visual");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxTitulo = document.getElementById("lightbox-titulo");
+  const lightboxCat = document.getElementById("lightbox-cat");
+  const lightboxDesc = document.getElementById("lightbox-desc");
+  const lightboxContador = document.getElementById("lightbox-contador");
+  const lightboxBtnWa = document.getElementById("lightbox-btn-wa");
+  const btnCerrarLightbox = document.getElementById("lightbox-cerrar");
+  const btnPrevLightbox = document.getElementById("lightbox-prev");
+  const btnNextLightbox = document.getElementById("lightbox-next");
+  const btnHeroWa = document.getElementById("hero-btn-wa");
+  const btnWaFlotante = document.getElementById("btn-wa-flotante");
+  const pieEnlaceWa = document.getElementById("pie-enlace-wa");
+  const anioActualEl = document.getElementById("anio-actual");
 
   // ── SECCIÓN CATEGORÍAS ────────────────────────────────────────────────────
 
@@ -152,8 +153,8 @@
         cat.mensajeWa ||
         CONFIG.mensajesWa.porCategoria[cat.id] ||
         CONFIG.mensajesWa.general;
-      const urlWa     = construirEnlaceWa(mensajeWa);
-      const usaContain = CATS_CONTAIN.includes(cat.id);
+      const urlWa = construirEnlaceWa(mensajeWa);
+      const usaContain = CATS_CONTAIN_PORTADA.includes(cat.id);
       const claseContain = usaContain ? " categoria-img-contain" : "";
 
       const tarjeta = document.createElement("article");
@@ -217,8 +218,8 @@
       const fotosPlanas = aplanarFotosCategoria(listaTrabajos, cat.id);
       if (fotosPlanas.length === 0) return;
 
-      const usaContain  = CATS_CONTAIN.includes(cat.id);
-      const numFotos    = fotosPlanas.length;
+      const usaContain = CATS_CONTAIN.includes(cat.id);
+      const numFotos = fotosPlanas.length;
       let fotoIndexActual = 0;
 
       const tarjeta = document.createElement("article");
@@ -233,10 +234,10 @@
       imgWrap.setAttribute("aria-label", `Ver galería de ${cat.nombre}`);
 
       const imgEl = document.createElement("img");
-      imgEl.src     = fotosPlanas[0].src;
-      imgEl.alt     = fotosPlanas[0].alt;
-      imgEl.width   = fotosPlanas[0].ancho;
-      imgEl.height  = fotosPlanas[0].alto;
+      imgEl.src = fotosPlanas[0].src;
+      imgEl.alt = fotosPlanas[0].alt;
+      imgEl.width = fotosPlanas[0].ancho;
+      imgEl.height = fotosPlanas[0].alto;
       imgEl.loading = "lazy";
       imgEl.className = `trabajo-img${usaContain ? " trabajo-img-contain" : ""}`;
       imgWrap.appendChild(imgEl);
@@ -267,12 +268,12 @@
       const actualizarFotoTarjeta = (delta) => {
         fotoIndexActual = (fotoIndexActual + delta + numFotos) % numFotos;
         const foto = fotosPlanas[fotoIndexActual];
-        imgEl.src    = foto.src;
-        imgEl.alt    = foto.alt;
-        imgEl.width  = foto.ancho;
+        imgEl.src = foto.src;
+        imgEl.alt = foto.alt;
+        imgEl.width = foto.ancho;
         imgEl.height = foto.alto;
         tituloEl.textContent = foto.trabajo.titulo;
-        descEl.textContent   = foto.trabajo.descripcion;
+        descEl.textContent = foto.trabajo.descripcion;
         if (contadorEl) contadorEl.textContent = `${fotoIndexActual + 1} / ${numFotos}`;
       };
 
@@ -303,7 +304,7 @@
         // Swipe táctil en la tarjeta
         let touchStartX = 0;
         let touchStartY = 0;
-        let esSwipe     = false;
+        let esSwipe = false;
 
         imgWrap.addEventListener("touchstart", (e) => {
           if (e.touches.length === 1) {
@@ -326,7 +327,7 @@
             const diffX = e.changedTouches[0].clientX - touchStartX;
             if (Math.abs(diffX) > 40) {
               if (diffX < 0) actualizarFotoTarjeta(1);
-              else           actualizarFotoTarjeta(-1);
+              else actualizarFotoTarjeta(-1);
             }
           }
         }, { passive: true });
@@ -359,14 +360,14 @@
   // ── ZOOM ──────────────────────────────────────────────────────────────────
 
   const resetZoom = () => {
-    isZoomed   = false;
-    zoomScale  = 1;
-    panX       = 0;
-    panY       = 0;
+    isZoomed = false;
+    zoomScale = 1;
+    panX = 0;
+    panY = 0;
     isDragging = false;
     hasDragged = false;
     if (lightboxImg) {
-      lightboxImg.style.transform       = "";
+      lightboxImg.style.transform = "";
       lightboxImg.style.transformOrigin = "center center";
     }
     lightboxVisual?.classList.remove("con-zoom", "arrastrando");
@@ -374,15 +375,15 @@
 
   const aplicarZoom = (clientX, clientY) => {
     if (!lightboxImg || !lightboxVisual) return;
-    const rect     = lightboxImg.getBoundingClientRect();
-    const percentX = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width)  * 100));
-    const percentY = Math.max(0, Math.min(100, ((clientY - rect.top)  / rect.height) * 100));
+    const rect = lightboxImg.getBoundingClientRect();
+    const percentX = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    const percentY = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
     zoomScale = 2.5;
-    isZoomed  = true;
+    isZoomed = true;
     panX = 0;
     panY = 0;
     lightboxImg.style.transformOrigin = `${percentX}% ${percentY}%`;
-    lightboxImg.style.transform       = `scale(${zoomScale})`;
+    lightboxImg.style.transform = `scale(${zoomScale})`;
     lightboxVisual.classList.add("con-zoom");
   };
 
@@ -396,9 +397,9 @@
    */
   const abrirLightbox = (fotosArr, fotoIndex, elementoOrigen) => {
     if (!lightbox || !fotosArr?.length) return;
-    elementoPrevioFoco   = elementoOrigen;
-    fotosLightbox        = fotosArr;
-    fotoLightboxIndex    = fotoIndex || 0;
+    elementoPrevioFoco = elementoOrigen;
+    fotosLightbox = fotosArr;
+    fotoLightboxIndex = fotoIndex || 0;
     actualizarContenidoLightbox();
     lightbox.classList.add("abierto");
     lightbox.setAttribute("aria-hidden", "false");
@@ -425,14 +426,14 @@
 
     resetZoom();
 
-    lightboxImg.src    = foto.src;
-    lightboxImg.alt    = foto.alt;
-    lightboxImg.width  = foto.ancho;
+    lightboxImg.src = foto.src;
+    lightboxImg.alt = foto.alt;
+    lightboxImg.width = foto.ancho;
     lightboxImg.height = foto.alto;
 
     lightboxTitulo.textContent = foto.trabajo.titulo;
-    lightboxCat.textContent    = obtenerNombreCategoria(foto.trabajo.categoria);
-    lightboxDesc.textContent   = foto.trabajo.descripcion;
+    lightboxCat.textContent = obtenerNombreCategoria(foto.trabajo.categoria);
+    lightboxDesc.textContent = foto.trabajo.descripcion;
 
     if (lightboxContador) {
       lightboxContador.textContent = `${fotoLightboxIndex + 1} / ${fotosLightbox.length}`;
@@ -529,19 +530,19 @@
     }, { passive: false });
 
     // Eventos táctiles en el visor
-    let touchStartX      = 0;
-    let touchStartY      = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
     let touchInitialPanX = 0;
     let touchInitialPanY = 0;
-    let touchMoved       = false;
+    let touchMoved = false;
 
     lightboxVisual?.addEventListener("touchstart", (e) => {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
-        touchMoved  = false;
+        touchMoved = false;
         if (isZoomed) {
-          isDragging       = true;
+          isDragging = true;
           touchInitialPanX = panX;
           touchInitialPanY = panY;
           lightboxVisual?.classList.add("arrastrando");
@@ -564,9 +565,9 @@
     }, { passive: false });
 
     lightboxVisual?.addEventListener("touchend", (e) => {
-      const now         = Date.now();
+      const now = Date.now();
       const esDobleToque = now - lastTouchTime < 300;
-      lastTouchTime     = now;
+      lastTouchTime = now;
 
       if (isZoomed) {
         isDragging = false;
@@ -577,7 +578,7 @@
           const diffX = e.changedTouches[0].clientX - touchStartX;
           if (Math.abs(diffX) > 40) {
             if (diffX < 0) navegarFotoLightbox(1);
-            else           navegarFotoLightbox(-1);
+            else navegarFotoLightbox(-1);
           }
         } else if (esDobleToque) {
           aplicarZoom(touchStartX, touchStartY);
@@ -628,7 +629,7 @@
     if (btnWaFlotante) btnWaFlotante.href = construirEnlaceWa(CONFIG.mensajesWa.flotante);
 
     if (pieEnlaceWa) {
-      pieEnlaceWa.href        = construirEnlaceWa(CONFIG.mensajesWa.pie);
+      pieEnlaceWa.href = construirEnlaceWa(CONFIG.mensajesWa.pie);
       pieEnlaceWa.textContent = "WhatsApp (+34 624 93 94 26)";
     }
 

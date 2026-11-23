@@ -40,11 +40,43 @@ const trabajos = [
 
   // ── CUADROS ──────────────────────────────────────────────────────────────
   {
+    titulo: "Retrato de perfil",
+    categoria: "cuadros",
+    descripcion: "Retrato a partir de una foto familiar. Acuarela.",
+    imagenes: [
+      { src: "img/cuadros/retrato-perfil.webp", ancho: 1600, alto: 1600, alt: "Retrato en acuarela de una mujer de perfil con el pelo recogido y pendiente de perla" },
+    ],
+  },
+  {
     titulo: "Madre y bebé",
     categoria: "cuadros",
     descripcion: "Acuarela y tinta.",
     imagenes: [
       { src: "img/cuadros/madre-y-bebe.webp", ancho: 1600, alto: 1149, alt: "Retrato en acuarela y tinta de madre con su bebé" },
+    ],
+  },
+  {
+    titulo: "Niña de azul",
+    categoria: "cuadros",
+    descripcion: "Retrato a partir de una foto familiar. Tinta y acuarela.",
+    imagenes: [
+      { src: "img/cuadros/nina-de-azul.webp", ancho: 1501, alto: 1600, alt: "Retrato a tinta y acuarela de una niña con diadema y vestido azul de flores" },
+    ],
+  },
+  {
+    titulo: "Bebé con cascos",
+    categoria: "cuadros",
+    descripcion: "Retrato a partir de una foto familiar. Acuarela.",
+    imagenes: [
+      { src: "img/cuadros/bebe-cascos.webp", ancho: 1600, alto: 1600, alt: "Retrato en acuarela de un bebé con auriculares morados" },
+    ],
+  },
+  {
+    titulo: "Conversación",
+    categoria: "cuadros",
+    descripcion: "Retrato por encargo a partir de una foto. Tinta y aguada.",
+    imagenes: [
+      { src: "img/cuadros/conversacion.webp", ancho: 1600, alto: 1198, alt: "Dibujo a tinta de dos hombres mayores conversando, uno con gorra y otro con gorro de lana" },
     ],
   },
   {
@@ -95,6 +127,14 @@ const trabajos = [
     descripcion: "Acuarela, tinta y pan de oro.",
     imagenes: [
       { src: "img/ilustracion/espalda-flores.webp", ancho: 1184, alto: 1600, alt: "Ilustración en acuarela: espalda de mujer con flores doradas" },
+    ],
+  },
+  {
+    titulo: "Mujer en kraft",
+    categoria: "ilustracion",
+    descripcion: "Tinta y collage de papel kraft.",
+    imagenes: [
+      { src: "img/ilustracion/mujer-kraft.webp", ancho: 1339, alto: 1600, alt: "Ilustración a tinta de una mujer con un halo de papel kraft arrugado" },
     ],
   },
   {
