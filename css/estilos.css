@@ -8,11 +8,15 @@
 .expecta-encargos {
   /* Paleta cromática oficial */
   --papel: #EDE3D3;
-  --papel-claro: #F8F3EA; /* tarjetas: un tono más claro que el fondo para que destaquen */
+  --papel-claro: #F8F3EA;
+  /* tarjetas: un tono más claro que el fondo para que destaquen */
   --tinta: #1E1B24;
-  --teja: #8E3B2C;        /* acento principal: rojo teja */
-  --teja-suave: #A24A38;  /* teja más luminoso para fondos de acento */
-  --arena: #E9DCC6;       /* fondos suaves cálidos */
+  --teja: #8E3B2C;
+  /* acento principal: rojo teja */
+  --teja-suave: #A24A38;
+  /* teja más luminoso para fondos de acento */
+  --arena: #E9DCC6;
+  /* fondos suaves cálidos */
   --sepia: #8A4A32;
   --oro: #A8873F;
   --rojo: #C8343A;
@@ -549,7 +553,8 @@
 }
 
 .expecta-encargos .galeria-filtros {
-  display: none; /* filtros eliminados */
+  display: none;
+  /* filtros eliminados */
 }
 
 .expecta-encargos .galeria-grid {
@@ -1135,9 +1140,9 @@
    ========================================================================== */
 
 /* Los elementos de una rejilla no pueden ser más anchos que su columna */
-.expecta-encargos .categorias-grid > *,
-.expecta-encargos .galeria-grid > *,
-.expecta-encargos .proceso-grid > * {
+.expecta-encargos .categorias-grid>*,
+.expecta-encargos .galeria-grid>*,
+.expecta-encargos .proceso-grid>* {
   min-width: 0;
 }
 
@@ -1169,4 +1174,83 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+   Galería en formato ficha: foto a la izquierda y explicación al lado
+   ========================================================================== */
+@media (min-width: 768px) {
+
+  /* 1. Una ficha por fila, en vez de dos columnas */
+  .expecta-encargos .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 2. La tarjeta pasa de columna (foto arriba, texto abajo) a fila (lado a lado) */
+  .expecta-encargos .tarjeta-trabajo {
+    flex-direction: row;
+    cursor: default;
+  }
+
+  /* Sin el "saltito" al pasar el ratón: ahora es una ficha grande */
+  .expecta-encargos .tarjeta-trabajo:hover {
+    transform: none;
+  }
+
+  /* 3. La foto ocupa el 60 % del ancho y tiene una altura fija */
+  .expecta-encargos .trabajo-img-wrap {
+    flex: 0 0 60%;
+    aspect-ratio: auto;
+    height: 560px;
+    background-color: var(--papel-claro);
+  }
+
+  /* En la ficha, todas las obras se ven enteras, sin recortar */
+  .expecta-encargos .trabajo-img {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .expecta-encargos .tarjeta-trabajo:hover .trabajo-img {
+    transform: none;
+  }
+
+  /* 4. El texto, centrado en vertical y más grande */
+  .expecta-encargos .trabajo-cuerpo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 36px;
+  }
+
+  .expecta-encargos .trabajo-titulo {
+    font-size: 2rem;
+  }
+
+  .expecta-encargos .trabajo-desc {
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Visor: al pinchar la foto, solo la imagen y mucho más grande
+   ========================================================================== */
+.expecta-encargos .lightbox-info {
+  display: none;
+}
+
+.expecta-encargos .lightbox-contenedor {
+  background-color: transparent;
+  box-shadow: none;
+  max-width: 96vw;
+  max-height: 94vh;
+}
+
+.expecta-encargos .lightbox-visual {
+  background-color: transparent;
+}
+
+.expecta-encargos .lightbox-img {
+  max-height: 90vh;
 }
