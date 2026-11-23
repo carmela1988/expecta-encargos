@@ -21,18 +21,8 @@
 
 <body class="expecta-encargos">
 
-  <!-- Filtro SVG para simular los bordes irregulares de la acuarela sobre papel -->
-  <svg class="svg-filtros" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;"
-    version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <filter id="filtro-acuarela" x="-20%" y="-20%" width="140%" height="140%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </defs>
-  </svg>
 
-  <!-- Navegación principal -->
+<!-- Navegación principal -->
   <nav class="nav-barra" aria-label="Navegación principal">
     <div class="contenedor nav-interior">
       <a href="#inicio" class="nav-logo">Expecta D.M.</a>
@@ -86,12 +76,7 @@
           detalle.</p>
       </div>
 
-      <!-- Barra de filtros dinámicos -->
-      <div class="galeria-filtros" id="galeria-filtros" role="toolbar" aria-label="Filtros por categoría">
-        <!-- Generado dinámicamente según categorías activas -->
-      </div>
-
-      <!-- Cuadrícula de obras -->
+      <!-- Cuadrícula de obras (una tarjeta por categoría, generada por js/app.js) -->
       <div class="galeria-grid" id="galeria-grid">
         <!-- Generado dinámicamente desde js/trabajos.js -->
       </div>
@@ -117,13 +102,13 @@
           </article>
           <article class="paso-tarjeta">
             <span class="paso-numero">02</span>
-            <h3 class="paso-titulo">El diseño</h3>
-            <p class="paso-texto">Te preparo boceto y presupuesto.</p>
+            <h3 class="paso-titulo">Te explico y te doy presupuesto</h3>
+            <p class="paso-texto">Te cuento cómo lo haría (materiales, tamaño y plazo) y te doy un presupuesto sin compromiso.</p>
           </article>
           <article class="paso-tarjeta">
             <span class="paso-numero">03</span>
-            <h3 class="paso-titulo">La creación</h3>
-            <p class="paso-texto">Lo creo a mano y te lo envío.</p>
+            <h3 class="paso-titulo">Tu pieza toma forma</h3>
+            <p class="paso-texto">Elaboro tu pieza a mano, sin prisas y cuidando cada detalle. Si quieres, te enseño cómo va avanzando.</p>
           </article>
         </div>
       </div>
@@ -163,10 +148,6 @@
   <footer class="pie-pagina" id="contacto">
     <div class="contenedor">
       <div class="pie-enlaces">
-        <a href="#" id="pie-enlace-ig" target="_blank" rel="noopener noreferrer" class="pie-enlace">
-          <!-- Enlace único a Instagram completado por JS -->
-          Instagram · Hic Sunt Tattoo (@hic_sunt_tattoo)
-        </a>
         <a href="#" id="pie-enlace-wa" target="_blank" rel="noopener noreferrer" class="pie-enlace">
           <!-- Enlace a WhatsApp completado por JS -->
           WhatsApp (+34 624 93 94 26)

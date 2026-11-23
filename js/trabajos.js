@@ -2,6 +2,8 @@
 // "imagenes" es una lista: la primera es la portada; si hay más de una,
 // la tarjeta muestra flechas para pasarlas y el visor las enseña todas.
 const trabajos = [
+
+  // ── FIMO ─────────────────────────────────────────────────────────────────
   {
     titulo: "Art Toy Tete",
     categoria: "fimo",
@@ -26,51 +28,129 @@ const trabajos = [
     ],
   },
   {
-    titulo: "Estatua en turquesa",
-    categoria: "cuadros",
-    descripcion: "Técnica mixta.",
-    imagenes: [{ src: "img/cuadros/estatua-turquesa.webp", ancho: 1200, alto: 1600, alt: "Busto de estatua clásica sobre fondo turquesa con salpicaduras rojas" }],
+    titulo: "Art Toy montañero",
+    categoria: "fimo",
+    descripcion: "Art toy original en fimo: mono montañero con plumífero, mochila y bastones.",
+    imagenes: [
+      { src: "img/fimo/montanero/01-frente.webp", ancho: 1200, alto: 1600, alt: "Art Toy montañero de frente: mono con plumífero, mochila y bastones" },
+      { src: "img/fimo/montanero/02-tres-cuartos.webp", ancho: 1200, alto: 1600, alt: "Art Toy montañero en vista de tres cuartos" },
+      { src: "img/fimo/montanero/03-espalda.webp", ancho: 1200, alto: 1600, alt: "Art Toy montañero de espaldas con la mochila" },
+    ],
   },
+
+  // ── CUADROS ──────────────────────────────────────────────────────────────
   {
-    titulo: "Retrato en violeta",
+    titulo: "Madre y bebé",
     categoria: "cuadros",
-    descripcion: "Técnica mixta.",
-    imagenes: [{ src: "img/cuadros/retrato-violeta.webp", ancho: 1200, alto: 1600, alt: "Retrato expresivo a tinta sobre fondo violeta" }],
-  },
-  {
-    titulo: "Retrato en rojo",
-    categoria: "cuadros",
-    descripcion: "Técnica mixta.",
-    imagenes: [{ src: "img/cuadros/retrato-rojo.webp", ancho: 1200, alto: 1600, alt: "Retrato expresivo a tinta sobre fondo rojo" }],
+    descripcion: "Acuarela y tinta.",
+    imagenes: [
+      { src: "img/cuadros/madre-y-bebe.webp", ancho: 1600, alto: 1149, alt: "Retrato en acuarela y tinta de madre con su bebé" },
+    ],
   },
   {
     titulo: "Retrato en spray",
     categoria: "cuadros",
     descripcion: "Técnica mixta.",
-    imagenes: [{ src: "img/cuadros/retrato-spray.webp", ancho: 1200, alto: 1600, alt: "Retrato de mujer en grises sobre fondo de espray rosa y azul" }],
+    imagenes: [
+      { src: "img/cuadros/retrato-spray.webp", ancho: 1200, alto: 1600, alt: "Retrato de mujer en grises sobre fondo de espray rosa y azul" },
+    ],
   },
   {
-    titulo: "Tigre azul",
+    titulo: "Tres niños",
+    categoria: "cuadros",
+    descripcion: "Acuarela y tinta.",
+    imagenes: [
+      { src: "img/cuadros/tres-ninos.webp", ancho: 1600, alto: 1151, alt: "Retrato en acuarela y tinta de tres niños" },
+    ],
+  },
+  {
+    titulo: "Retrato de perro",
+    categoria: "cuadros",
+    descripcion: "Retrato de mascota en tinta y acuarela.",
+    imagenes: [
+      { src: "img/cuadros/retrato-perro.webp", ancho: 1280, alto: 1600, alt: "Retrato de perro en tinta y acuarela" },
+    ],
+  },
+
+  // ── ILUSTRACIÓN ──────────────────────────────────────────────────────────
+  {
+    titulo: "Mujer tigre",
     categoria: "ilustracion",
     descripcion: "Tinta y acuarela.",
-    imagenes: [{ src: "img/ilustracion/tigre-azul.webp", ancho: 1200, alto: 1600, alt: "Ilustración a tinta y acuarela azul: figura femenina, pelícano y tigre entre flores" }],
+    imagenes: [
+      { src: "img/ilustracion/mujer-tigre.webp", ancho: 1200, alto: 1600, alt: "Ilustración a tinta y acuarela: mujer fusionada con un tigre" },
+    ],
   },
   {
     titulo: "El cuervo",
     categoria: "ilustracion",
     descripcion: "Tinta sepia y acuarela.",
-    imagenes: [{ src: "img/ilustracion/cuervo.webp", ancho: 1188, alto: 1600, alt: "Ilustración en tinta sepia: un cuervo posado sobre una mujer encogida" }],
+    imagenes: [
+      { src: "img/ilustracion/cuervo.webp", ancho: 1188, alto: 1600, alt: "Ilustración en tinta sepia: un cuervo posado sobre una mujer encogida" },
+    ],
   },
   {
     titulo: "Flores en la piel",
     categoria: "ilustracion",
     descripcion: "Acuarela, tinta y pan de oro.",
-    imagenes: [{ src: "img/ilustracion/espalda-flores.webp", ancho: 1184, alto: 1600, alt: "Ilustración en acuarela: espalda de mujer con flores doradas" }],
+    imagenes: [
+      { src: "img/ilustracion/espalda-flores.webp", ancho: 1184, alto: 1600, alt: "Ilustración en acuarela: espalda de mujer con flores doradas" },
+    ],
   },
   {
+    titulo: "Estatua en turquesa",
+    categoria: "ilustracion",
+    descripcion: "Técnica mixta.",
+    imagenes: [
+      { src: "img/cuadros/estatua-turquesa.webp", ancho: 1200, alto: 1600, alt: "Busto de estatua clásica sobre fondo turquesa con salpicaduras rojas" },
+    ],
+  },
+  {
+    titulo: "Retrato en violeta",
+    categoria: "ilustracion",
+    descripcion: "Técnica mixta.",
+    imagenes: [
+      { src: "img/cuadros/retrato-violeta.webp", ancho: 1200, alto: 1600, alt: "Retrato expresivo a tinta sobre fondo violeta" },
+    ],
+  },
+  {
+    titulo: "Retrato en rojo",
+    categoria: "ilustracion",
+    descripcion: "Técnica mixta.",
+    imagenes: [
+      { src: "img/cuadros/retrato-rojo.webp", ancho: 1200, alto: 1600, alt: "Retrato expresivo a tinta sobre fondo rojo" },
+    ],
+  },
+  {
+    titulo: "Carnero",
+    categoria: "ilustracion",
+    descripcion: "Tinta y acuarela.",
+    imagenes: [
+      { src: "img/ilustracion/carnero.webp", ancho: 1600, alto: 1301, alt: "Ilustración de carnero en tinta y acuarela" },
+    ],
+  },
+  {
+    titulo: "Iguana",
+    categoria: "ilustracion",
+    descripcion: "Tinta y acuarela.",
+    imagenes: [
+      { src: "img/ilustracion/iguana.webp", ancho: 1588, alto: 1600, alt: "Ilustración de iguana en tinta y acuarela" },
+    ],
+  },
+  {
+    titulo: "Tigre azul",
+    categoria: "ilustracion",
+    descripcion: "Tinta y acuarela.",
+    imagenes: [
+      { src: "img/ilustracion/tigre-azul.webp", ancho: 1200, alto: 1600, alt: "Ilustración a tinta y acuarela azul: figura femenina, pelícano y tigre entre flores" },
+    ],
+  },
+
+  // ── MAQUETAS ─────────────────────────────────────────────────────────────
+  {
     titulo: "Maqueta rústica",
-    categoria: "otros",
-    descripcion: "Maqueta hecha a mano con miniaturas: muros desconchados, ladrillo visto, pila de lavar, farol y utensilios envejecidos.",
+    categoria: "maquetas",
+    descripcion: "Hecha a mano con miniaturas: muros desconchados, ladrillo visto, pila de lavar, farol y utensilios envejecidos.",
     imagenes: [
       { src: "img/otros/maqueta-completa.webp", ancho: 1200, alto: 1600, alt: "Maqueta rústica completa: estancia encalada con vigas de madera, puerta, pila de lavar y barreño" },
       { src: "img/otros/maqueta-rincon.webp", ancho: 1200, alto: 1600, alt: "Rincón de la maqueta: muro desconchado, barreño y puerta de madera" },

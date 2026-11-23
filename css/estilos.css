@@ -10,8 +10,9 @@
   --papel: #EDE3D3;
   --papel-claro: #F8F3EA; /* tarjetas: un tono más claro que el fondo para que destaquen */
   --tinta: #1E1B24;
-  --teja: #8E3B2C;      /* acento principal: rojo teja (sustituye al añil) */
-  --arena: #E9DCC6;     /* fondos suaves cálidos (sustituye a la lavanda) */
+  --teja: #8E3B2C;        /* acento principal: rojo teja */
+  --teja-suave: #A24A38;  /* teja más luminoso para fondos de acento */
+  --arena: #E9DCC6;       /* fondos suaves cálidos */
   --sepia: #8A4A32;
   --oro: #A8873F;
   --rojo: #C8343A;
@@ -449,16 +450,44 @@
   flex-grow: 1;
 }
 
+.expecta-encargos .categoria-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+@media (min-width: 480px) {
+  .expecta-encargos .categoria-acciones {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
 .expecta-encargos .categoria-btn {
-  align-self: flex-start;
-  width: 100%;
+  flex: 1 1 auto;
+}
+
+.expecta-encargos .categoria-btn-ver {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* Portadas de categorías que muestran la obra entera (cuadros, ilustración) */
+.expecta-encargos .categoria-img-wrap.categoria-img-contain {
+  background-color: var(--papel-claro);
+}
+
+.expecta-encargos .categoria-img.categoria-img-contain {
+  object-fit: contain;
+  object-position: center center;
 }
 
 /* Tarjeta especial "Otra idea" como franja completa */
 .expecta-encargos .tarjeta-otra-idea {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, rgba(248, 243, 234, 0.96) 0%, rgba(233, 220, 198, 0.6) 50%, rgba(142, 59, 44, 0.10) 100%);
-  border: 1px dashed rgba(30, 27, 36, 0.35);
+  background-color: var(--teja-suave);
+  border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -471,18 +500,44 @@
 .expecta-encargos .tarjeta-otra-idea .categoria-titulo {
   font-size: 2rem;
   margin-bottom: 12px;
+  color: var(--papel-claro);
 }
 
 .expecta-encargos .tarjeta-otra-idea .categoria-desc {
   font-size: 1.05rem;
+  color: var(--papel-claro);
+  opacity: 0.9;
   max-width: 620px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 28px;
 }
 
-.expecta-encargos .tarjeta-otra-idea .boton {
-  align-self: center;
+/* Botón de la tarjeta "otra idea": borde en --papel-claro, hover relleno --papel-claro */
+.expecta-encargos .boton-otra-idea {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--papel-claro);
+  border-radius: var(--radio-suave);
+  background-color: transparent;
+  color: var(--papel-claro);
+  cursor: pointer;
+  transition: var(--transicion-suave);
+  text-decoration: none;
+}
+
+.expecta-encargos .boton-otra-idea:hover {
+  background-color: var(--papel-claro);
+  color: var(--teja);
+  border-color: var(--papel-claro);
 }
 
 /* ==========================================================================
@@ -494,36 +549,7 @@
 }
 
 .expecta-encargos .galeria-filtros {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-.expecta-encargos .btn-filtro {
-  padding: 8px 18px;
-  font-family: var(--fuente-texto);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background-color: transparent;
-  color: var(--tinta);
-  border: 1px solid rgba(30, 27, 36, 0.25);
-  border-radius: var(--radio-suave);
-  cursor: pointer;
-  transition: var(--transicion-suave);
-}
-
-.expecta-encargos .btn-filtro:hover {
-  border-color: var(--tinta);
-  color: var(--teja);
-}
-
-.expecta-encargos .btn-filtro.activo {
-  background-color: var(--teja);
-  color: var(--papel);
-  border-color: var(--teja);
+  display: none; /* filtros eliminados */
 }
 
 .expecta-encargos .galeria-grid {
@@ -538,10 +564,14 @@
   }
 }
 
-@media (min-width: 960px) {
-  .expecta-encargos .galeria-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Galería: obras que se muestran enteras (cuadros, ilustración) */
+.expecta-encargos .trabajo-img-wrap.trabajo-img-contain {
+  background-color: var(--papel-claro);
+}
+
+.expecta-encargos .trabajo-img.trabajo-img-contain {
+  object-fit: contain;
+  object-position: center center;
 }
 
 .expecta-encargos .tarjeta-trabajo {
