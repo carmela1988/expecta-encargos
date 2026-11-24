@@ -52,7 +52,7 @@ const trabajos = [
     categoria: "cuadros",
     descripcion: "Acuarela y tinta.",
     imagenes: [
-      { src: "img/cuadros/madre-y-bebe.webp", ancho: 1600, alto: 1149, alt: "Retrato en acuarela y tinta de madre con su bebé" },
+      { src: "img/cuadros/madre-y-bebe.webp", ancho: 1584, alto: 1141, alt: "Retrato en acuarela y tinta de madre con su bebé" },
     ],
   },
   {
@@ -92,7 +92,7 @@ const trabajos = [
     categoria: "cuadros",
     descripcion: "Acuarela y tinta.",
     imagenes: [
-      { src: "img/cuadros/tres-ninos.webp", ancho: 1600, alto: 1151, alt: "Retrato en acuarela y tinta de tres niños" },
+      { src: "img/cuadros/tres-ninos.webp", ancho: 1524, alto: 1111, alt: "Retrato en acuarela y tinta de tres niños" },
     ],
   },
   {
@@ -166,7 +166,7 @@ const trabajos = [
     categoria: "ilustracion",
     descripcion: "Tinta y acuarela.",
     imagenes: [
-      { src: "img/ilustracion/carnero.webp", ancho: 1600, alto: 1301, alt: "Ilustración de carnero en tinta y acuarela" },
+      { src: "img/ilustracion/carnero.webp", ancho: 1447, alto: 1144, alt: "Ilustración de carnero en tinta y acuarela" },
     ],
   },
   {
