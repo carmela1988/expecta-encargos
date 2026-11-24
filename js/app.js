@@ -36,6 +36,7 @@
         id: "fimo",
         nombre: "Art Toys",
         descripcion: "Figuras de fimo hechas a mano a partir de tu foto, y art toys originales.",
+        portada: "Art Toy Tete",
       },
       {
         id: "bolsos",
@@ -55,13 +56,13 @@
       {
         id: "maquetas",
         nombre: "Maquetas",
-        descripcion: "Escenas en miniatura hechas a mano, con cada detalle envejecido a mano.",
+        descripcion: "Maquetas y escenas con miniaturas hechas a mano.",
       },
     ],
   };
 
   // Categorías que muestran la obra entera (object-fit: contain sobre --papel-claro)
-  const CATS_CONTAIN = ["cuadros", "ilustracion"];
+  const CATS_CONTAIN = ["fimo", "cuadros", "ilustracion"];
   const CATS_CONTAIN_PORTADA = ["ilustracion"];
 
   // ── UTILIDADES ────────────────────────────────────────────────────────────
@@ -145,7 +146,10 @@
     const categoriasActivas = obtenerCategoriasActivas(listaTrabajos);
 
     categoriasActivas.forEach((cat) => {
-      const primerTrabajo = listaTrabajos.find((t) => t.categoria === cat.id);
+      // La portada es la obra indicada en "portada" (CONFIG) o, si no hay, la primera de la categoría
+      const primerTrabajo =
+        listaTrabajos.find((t) => t.categoria === cat.id && t.titulo === cat.portada) ||
+        listaTrabajos.find((t) => t.categoria === cat.id);
       if (!primerTrabajo?.imagenes?.length) return;
 
       const portada = primerTrabajo.imagenes[0];
@@ -242,6 +246,49 @@
       imgEl.className = `trabajo-img${usaContain ? " trabajo-img-contain" : ""}`;
       imgWrap.appendChild(imgEl);
 
+      // ── Vídeo: para las obras que en trabajos.js tienen "video" ──
+      const videoEl = document.createElement("video");
+      videoEl.className = imgEl.className;
+      videoEl.muted = true;
+      videoEl.loop = true;
+      videoEl.playsInline = true;
+      videoEl.preload = "none";
+      videoEl.style.display = "none";
+      imgWrap.appendChild(videoEl);
+
+      // Enseña la foto o el vídeo según lo que sea el elemento actual
+      const mostrarMedia = (foto) => {
+        if (foto.video) {
+          imgEl.style.display = "none";
+          videoEl.poster = foto.src;
+          if (videoEl.getAttribute("src") !== foto.video) videoEl.src = foto.video;
+          videoEl.setAttribute("aria-label", foto.alt);
+          videoEl.style.display = "block";
+          videoEl.play().catch(() => {});
+        } else {
+          videoEl.pause();
+          videoEl.style.display = "none";
+          imgEl.style.display = "block";
+          imgEl.src = foto.src;
+          imgEl.alt = foto.alt;
+          imgEl.width = foto.ancho;
+          imgEl.height = foto.alto;
+        }
+      };
+      if (fotosPlanas[0].video) mostrarMedia(fotosPlanas[0]);
+
+      // Al pulsar: si es vídeo, pausa o reanuda; si es foto, abre el visor (solo con fotos)
+      const pulsarMedia = () => {
+        const foto = fotosPlanas[fotoIndexActual];
+        if (foto.video) {
+          if (videoEl.paused) videoEl.play().catch(() => {});
+          else videoEl.pause();
+          return;
+        }
+        const soloFotos = fotosPlanas.filter((f) => !f.video);
+        abrirLightbox(soloFotos, soloFotos.indexOf(foto), imgWrap);
+      };
+
       // ── Cuerpo: nombre de categoría + título y desc de la obra en curso ──
       const cuerpo = document.createElement("div");
       cuerpo.className = "trabajo-cuerpo";
@@ -268,10 +315,7 @@
       const actualizarFotoTarjeta = (delta) => {
         fotoIndexActual = (fotoIndexActual + delta + numFotos) % numFotos;
         const foto = fotosPlanas[fotoIndexActual];
-        imgEl.src = foto.src;
-        imgEl.alt = foto.alt;
-        imgEl.width = foto.ancho;
-        imgEl.height = foto.alto;
+        mostrarMedia(foto);
         tituloEl.textContent = foto.trabajo.titulo;
         descEl.textContent = foto.trabajo.descripcion;
         if (contadorEl) contadorEl.textContent = `${fotoIndexActual + 1} / ${numFotos}`;
@@ -334,14 +378,12 @@
       }
 
       // ── Pulsar imagen → abrir lightbox en la foto actual ──
-      imgWrap.addEventListener("click", () => {
-        abrirLightbox(fotosPlanas, fotoIndexActual, imgWrap);
-      });
+      imgWrap.addEventListener("click", pulsarMedia);
 
       imgWrap.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          abrirLightbox(fotosPlanas, fotoIndexActual, imgWrap);
+          pulsarMedia();
         } else if (e.key === "ArrowLeft" && numFotos > 1) {
           e.preventDefault();
           actualizarFotoTarjeta(-1);
